@@ -1,0 +1,26 @@
+from telegram.ext import Application, CommandHandler, MessageHandler, filters
+import os
+
+TOKEN = os.environ['TOKEN']
+
+async def start(update, context):
+    await update.message.reply_text("🚀 Elios activé avec succès !")
+
+async def handle_message(update, context):
+    message_recu = update.message.text.lower()
+    if "petit scarabée" in message_recu:
+        await update.message.reply_text(
+            "🪲 Petit Scarabée détecté.\n"
+            "Réactivation complète du Manuscrit Maître v1.0 StormbotIA & Elios effectuée ✅."
+        )
+    else:
+        await update.message.reply_text("Commande non reconnue.")
+
+if __name__ == '__main__':
+    app = Application.builder().token(TOKEN).build()
+
+    app.add_handler(CommandHandler('start', start))
+    app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+
+    print("Elios est actif sur Telegram (Render)...")
+    app.run_polling()
