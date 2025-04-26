@@ -1,3 +1,6 @@
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+
+
 # EliosTelegramBot 🤖🚀
 
 Bienvenue dans le projet **EliosTelegramBot** !
